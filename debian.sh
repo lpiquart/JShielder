@@ -31,7 +31,7 @@ echo "
 +¦¦¦¦¦++¦¦¦¦¦¦¦¦¦¦¦  ¦¦¦¦¦¦¦¦¦¦¦¦¦+¦¦¦¦¦¦¦+¦¦¦¦¦¦++¦¦¦¦¦¦¦+¦¦¦  ¦¦¦
 +----+ +------++-+  +-++-++------++------++-----+ +------++-+  +-+
 
-Pour debian 9
+Pour debian 9 traduis en français
 Developed By Jason Soto @Jsitech"
 echo
 echo
@@ -69,9 +69,9 @@ install_dep(){
    echo -e "\e[93m[+]\e[00m Définition de conditions préalables"
    echo -e "\e[34m---------------------------------------------------------------------------------------------------------\e[00m"
    echo ""
-   apt install spinner
-   apt install e2fslibs
-   apt -y install lsb-release apt-transport-https ca-certificates 
+   apt install spinner #install spinner not default debian
+   apt install e2fslibs # install for chattr
+   apt -y install lsb-release apt-transport-https ca-certificates #install php 7.3
    wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
    echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/php7.3.list
    say_done
@@ -609,7 +609,7 @@ install_qos_spamhaus(){
     echo ""
     apt -y install libapache2-mod-qos
     cp templates/qos /etc/apache2/mods-available/qos.conf
-    wget http://ftp.us.debian.org/debian/pool/main/m/mod-spamhaus/libapache2-mod-spamhaus_0.7-1_amd64.deb
+    wget http://ftp.us.debian.org/debian/pool/main/m/mod-spamhaus/libapache2-mod-spamhaus_0.7-1_amd64.deb #spamhaus not maintained next change limapapche2-mod-defensible maybe
     dpkg -i libapache2-mod-spamhaus_0.7-1_amd64.deb
     cp templates/spamhaus /etc/apache2/mods-available/spamhaus.conf
     service apache2 restart
